@@ -8,17 +8,28 @@
 		function loadData() {
 			// crear una peticion
 			let xhr = new XMLHttpRequest();
-			xhr.open("GET", "https://beercules19.github.io/ejercicio_JSON/info-1.json");
 			
 			xhr.onreadystatechange = function() {
 				console.log(this.readyState, this.status, this.statusText);
 			}
 			
+			xhr.open("GET", "https://beercules19.github.io/ejercicio_JSON/info_1.json");
+			
 			// procesar la peticion
 			xhr.onload = function (){
 				if (this.readyState === 4 && this.status === 200) {
 					// cambiar texto
-					console.log("CAMBIANDO TEXTO");
+					let data = JSON.parse(this.responseText);
+					let emptyDiv = document.getElementById("loaded-info")
+					
+					let html = '';
+					data.forEach(function(pig) {
+						html += '<p>'
+						html += pig.nombre + ' ' + pig.apellido
+						html += '</p>'
+					});
+					
+					emptyDiv.insertAdjacentHTML('beforeend', html);
 					// esconder el boton
 				} else {
 					// la informacion no llego
@@ -28,12 +39,6 @@
 			}
 			// enviar la peticion
 			xhr.send();
-		}
-		
-		function changeText(response) {
-			// modificar contenido
-			
-			// modificar contenido
 		}
 	</script>
 </head>
