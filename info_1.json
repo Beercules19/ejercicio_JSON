@@ -1,10 +1,10 @@
 [
 	{
-		"nombre": "Alain",
-		"apellido": "Vera"
+ 		"nombre":"Alain",
+ 		"apellido":"Vera"
 	},
 	{
-		"nombre": "peppa",
-		"apellido: "pig"
+		"nombre":"Peppa",
+		"apellido":"Pig"
 	}
 ]
